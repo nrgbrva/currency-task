@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+* {
+  margin: 0 !important;
+  padding: 0 !important;
+  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
+}
+.navbar {
+  padding: 15px 0 !important;
+  background: #f5f5f6;
+}
+a {
+  display: flex;
+  align-items: center;
+}
+.navbar a,
+button:first-of-type {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 13px;
+  letter-spacing: 0.06em;
+  color: black;
+}
+.navbar a:first-of-type {
+  color: #9f9f9f;
+}
+img {
+  width: 89px;
+  height: 23px;
+}
+
+button:first-of-type {
+  width: 58px;
+  height: 33px;
+  background-color: white;
+  border: none;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 42px;
+}
+
+.i-have {
+  font-weight: 400;
+  font-size: 12px !important;
+  line-height: 14px;
+  display: flex;
+  align-items: center;
+  color: #9f9f9f;
+}
+
+.box {
+  text-align: center;
+  padding: 5px !important;
+  width: 65.06px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px 0px 0px 3px;
+  border: 1px solid #e5e5e5;
+}
+
+.choice {
+  width: fit-content;
+  border: 1px solid #e5e5e5;
+  border-radius: 3px;
+  margin-bottom: 20px !important;
+}
+
+.first {
+  color: white;
+  background: #833ae0;
+}
+
+.amount {
+  width: 50%;
+  height: 102px;
+  padding: 15px !important;
+  border: 1px solid #e5e5e5;
+  border-radius: 3px;
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 42px;
+}
+
+h2 + p {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  display: flex;
+  align-items: center;
+
+  color: #c6c6c6;
+}
