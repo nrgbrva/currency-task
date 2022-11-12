@@ -31,8 +31,8 @@ unitEnd.forEach(element => {
                 rating = Object.values(x.rates)[0]
                 console.log(rating);
                 firstAmount = +firstAmount.innerText;
-                info2.innerText=`1${secondvalue} = ${rating}${firstvalue}`
-                info1.innerText=`1${firstvalue} = ${rating}${secondvalue}`
+                info2.innerText=`1 ${secondvalue} = ${rating}${firstvalue}`
+                info1.innerText=`1 ${firstvalue} = ${rating}${secondvalue}`
                 let sum = rating * firstAmount;
                 if(isNaN(sum)){
                     alert('xeta meydana geldi')
