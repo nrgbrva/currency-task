@@ -93,7 +93,7 @@ h2 {
   line-height: 42px;
 }
 button:hover{
-  color: white;
+  color: white !important;
   background: #833AE0;
 }
 h2 + p {
