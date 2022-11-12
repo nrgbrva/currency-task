@@ -10,6 +10,7 @@ unitStart.forEach(element => {
         firstvalue = document.querySelector('.primary>.first')
         firstvalue = firstvalue.innerText
         firstAmount = document.querySelector('.starting h2')
+       
     }
     )
 });
@@ -24,18 +25,17 @@ unitEnd.forEach(element => {
         let lastAmount = document.querySelector('.ending h2')
         fetch(`https://api.exchangerate.host/latest?base=${firstvalue}&symbols=${secondvalue} `)
             .then(x => x.json()).then(function (x) {
-             
+                let info2=document.querySelector('#news2');
+                let info1=document.querySelector('#news1');
                 console.log(Object.values(x.rates)[0])
-                
                 rating = Object.values(x.rates)[0]
-
                 console.log(rating);
                 firstAmount = +firstAmount.innerText;
-
+                info2.innerText=`1${secondvalue} = ${rating}${firstvalue}`
+                info1.innerText=`1${firstvalue} = ${rating}${secondvalue}`
                 let sum = rating * firstAmount;
                 console.log(sum)
                 lastAmount.textContent=sum
-
             })
     })
 
