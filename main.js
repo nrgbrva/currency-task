@@ -34,6 +34,9 @@ unitEnd.forEach(element => {
                 info2.innerText=`1${secondvalue} = ${rating}${firstvalue}`
                 info1.innerText=`1${firstvalue} = ${rating}${secondvalue}`
                 let sum = rating * firstAmount;
+                if(isNaN(sum)){
+                    alert('xeta meydana geldi')
+                }
                 console.log(sum)
                 lastAmount.textContent=sum
             })
