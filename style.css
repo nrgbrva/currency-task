@@ -17,6 +17,7 @@ a {
 .active{
   color: black !important;
 }
+
 .navbar a,
 button:first-of-type {
   font-style: normal;
@@ -106,4 +107,7 @@ h2 + p {
 }
 .title{
   margin-left: 13% !important;
+}
+button{
+  color: black !important;
 }
