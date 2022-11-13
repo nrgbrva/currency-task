@@ -91,7 +91,7 @@ h1 {
   border-radius: 3px;
 }
 
-h2 {
+input {
   font-weight: 700;
   font-size: 36px;
   line-height: 42px;
@@ -100,7 +100,7 @@ button:hover{
   color: white !important;
   background: #833AE0;
 }
-h2 + p {
+input + p {
   font-weight: 400;
   font-size: 12px;
   line-height: 14px;
@@ -129,4 +129,9 @@ button{
 
   }
  
+}
+
+input{
+  border: none;
+  height: 60%;
 }
