@@ -10,6 +10,7 @@ unitStart.forEach(element => {
         firstvalue = document.querySelector('.primary>.first')
         firstvalue = firstvalue.innerText
         firstAmount = document.querySelector('.starting h2')
+        
     }
     )
 });
@@ -22,13 +23,14 @@ unitEnd.forEach(element => {
         secondvalue = document.querySelector('.secondary>.first')
         secondvalue = secondvalue.innerText
         let lastAmount = document.querySelector('.ending h2')
+        firstAmount = document.querySelector('.starting h2')
         fetch(`https://api.exchangerate.host/latest?base=${firstvalue}&symbols=${secondvalue} `)
             .then(x => x.json()).then(function (x) {
                 let info2 = document.querySelector('#news2');
                 let info1 = document.querySelector('#news1');
-                console.log(Object.values(x.rates)[0])
+                //console.log(Object.values(x.rates)[0])
                 rating = Object.values(x.rates)[0]
-                console.log(rating);
+                //console.log(rating);
                 firstAmount = +firstAmount.innerText;
                 info2.innerText = `1 ${secondvalue} = ${rating}${firstvalue}`
                 info1.innerText = `1 ${firstvalue} = ${rating}${secondvalue}`
@@ -41,7 +43,7 @@ unitEnd.forEach(element => {
                     alert('xeta meydana geldi')
                 }
                 console.log(sum)
-                lastAmount.textContent = sum
+                lastAmount.innerHTML = sum
             })
     })
 
