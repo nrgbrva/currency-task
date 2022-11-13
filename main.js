@@ -52,12 +52,18 @@ firstAmount.addEventListener('keyup',function(){
     let val1=firstAmount.value;
     let val2=val1*rating
     lastAmount.value=val2
-    console.log(val1)
-    console.log(typeof rating)
+    validation()
+   
 })
 lastAmount.addEventListener('keyup',function(){
     let val1=lastAmount.value;
     let val2=val1*rating
     firstAmount.value=val2
+    validation()
 })
 
+function validation(){
+    if( document.querySelectorAll('.first').length==0){
+        alert('siz valyuta secimi etmediniz')
+    }
+}
