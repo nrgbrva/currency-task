@@ -48,22 +48,16 @@ function getInfo(){
 /// edit boxes according to given value
 firstAmount = document.querySelector('.starting input');
 lastAmount=document.querySelector('.ending input');
-firstAmount.addEventListener('change',function(){
+firstAmount.addEventListener('keyup',function(){
     let val1=firstAmount.value;
     let val2=val1*rating
     lastAmount.value=val2
     console.log(val1)
     console.log(typeof rating)
-    
-    
 })
-lastAmount.addEventListener('change',function(){
+lastAmount.addEventListener('keyup',function(){
     let val1=lastAmount.value;
     let val2=val1*rating
     firstAmount.value=val2
-    console.log(val1)
-    console.log(typeof rating)
-    
-    
 })
 
