@@ -17,9 +17,13 @@ unitStart.forEach(element => {
         firstvalue = document.querySelector('.primary>.first')
         firstvalue = firstvalue.innerText
         editInfo();
-        let val1 = firstAmount.value;
-        let val2 = val1 * rating
-        lastAmount.value = val2
+        firstAmount.addEventListener('click', function () {
+            let val1 = firstAmount.value;
+            let val2 = val1 * rating
+            lastAmount.value = val2
+    
+        })
+        
     }
     )
 });
@@ -31,6 +35,12 @@ unitEnd.forEach(element => {
         secondvalue = document.querySelector('.secondary>.first')
         secondvalue = secondvalue.innerText
         editInfo()
+        lastAmount.addEventListener('click', function () {
+            getinfo2();
+            let val1 = lastAmount.value;
+            let val2 = val1 * rating
+            firstAmount.value = val2
+        })
 
 
     })
