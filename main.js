@@ -21,9 +21,7 @@ unitStart.forEach(element => {
             let val1 = firstAmount.value;
             let val2 = val1 * rating
             lastAmount.value = val2
-    
         })
-        
     }
     )
 });
@@ -41,10 +39,7 @@ unitEnd.forEach(element => {
             let val2 = val1 * rating
             firstAmount.value = val2
         })
-
-
     })
-
 });
 /////////////////////////
 /// edit info box
@@ -53,11 +48,11 @@ function editInfo() {
     valid();
     info2.innerText = `1 ${secondvalue} = ${rating}${firstvalue}`
     info1.innerText = `1 ${firstvalue} = ${rating}${secondvalue}`
-
 }
 ///////
 ///// get rate info
 function getInfo() {
+
     fetch(`https://api.exchangerate.host/latest?base=${firstvalue}&symbols=${secondvalue} `)
         .then(x => x.json()).then(function (x) {
             rating = Object.values(x.rates)[0]
@@ -65,14 +60,11 @@ function getInfo() {
 }
 /////////
 /// edit boxes according to given value
-
-
 function first() {
     firstAmount.addEventListener('keyup', function () {
         let val1 = firstAmount.value;
         let val2 = val1 * rating
         lastAmount.value = val2
-
     })
 }
 function getinfo2() {
@@ -82,14 +74,12 @@ function getinfo2() {
         })
 }
 function last() {
-
     lastAmount.addEventListener('keyup', function () {
         getinfo2();
         let val1 = lastAmount.value;
         let val2 = val1 * rating
         firstAmount.value = val2
     })
-
 }
 first();
 last();
