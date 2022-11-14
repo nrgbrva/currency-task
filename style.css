@@ -62,7 +62,7 @@ h1 {
 .box {
   text-align: center;
   padding: 5px !important;
-  width: 65.06px;
+  width: 120px;
   height: 30px;
   display: flex;
   justify-content: center;
@@ -130,8 +130,11 @@ button{
   }
  
 }
-
 input{
   border: none;
   height: 60%;
+}
+input[type="number"]
+{
+    font-size:36px;
 }

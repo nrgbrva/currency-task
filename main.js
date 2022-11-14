@@ -52,7 +52,6 @@ function editInfo() {
 ///////
 ///// get rate info
 function getInfo() {
-
     fetch(`https://api.exchangerate.host/latest?base=${firstvalue}&symbols=${secondvalue} `)
         .then(x => x.json()).then(function (x) {
             rating = Object.values(x.rates)[0]
