@@ -1,27 +1,20 @@
+//// boxes coloring
 let firstvalue;
 let secondvalue;
-let firstAmount;
-let lastAmount;
-let sum;
 let rating;
-let info2 = document.querySelector('#news2');
+let rating2;
+let unitStart = document.querySelectorAll('.primary .box');
+firstvalue = document.querySelector('.primary .first')
+secondvalue = document.querySelector('.secondary .first')
 let info1 = document.querySelector('#news1');
-//// select unit
+let info2 = document.querySelector('#news2');
 firstAmount = document.querySelector('.starting input');
 lastAmount = document.querySelector('.ending input');
-let unitStart = document.querySelectorAll('.primary .box');
 unitStart.forEach(element => {
     element.addEventListener('click', function () {
         unitStart.forEach(element => element.classList.remove('first'))
         element.classList.toggle("first");
-        firstvalue = document.querySelector('.primary>.first')
-        firstvalue = firstvalue.innerText
-        editInfo();
-        firstAmount.addEventListener('click', function () {
-            let val1 = firstAmount.value;
-            let val2 = val1 * rating
-            lastAmount.value = val2
-        })
+        getInfo();
     }
     )
 });
@@ -30,58 +23,68 @@ unitEnd.forEach(element => {
     element.addEventListener('click', function () {
         unitEnd.forEach(element => element.classList.remove('first'))
         element.classList.toggle("first");
-        secondvalue = document.querySelector('.secondary>.first')
-        secondvalue = secondvalue.innerText
-        editInfo()
-        lastAmount.addEventListener('click', function () {
-            getinfo2();
-            let val1 = lastAmount.value;
-            let val2 = val1 * rating
-            firstAmount.value = val2
+        getInfo();
+    })
+
+});//////
+/// get rates and edit info
+function getInfo() {
+    firstvalue = document.querySelector('.primary .first')
+    secondvalue = document.querySelector('.secondary .first')
+    fetch(`https://api.exchangerate.host/latest?base=${firstvalue.textContent}&symbols=${secondvalue.textContent} `)
+        .then(x => x.json()).then(function (x) {
+            firstvalue = document.querySelector('.primary .first')
+            secondvalue = document.querySelector('.secondary .first')
+            rating = x.rates[`${firstvalue.innerText}`]
+            rating2 = x.rates[`${secondvalue.innerText}`]
+            info1.innerText = `1 ${firstvalue.textContent} = ${rating2}${secondvalue.textContent}`
+            info2.innerText = `1 ${secondvalue.textContent} = ${1 / rating2}${firstvalue.textContent}`
+            firstAmount.addEventListener('keyup', function () {
+                let val1 = firstAmount.value;
+                let val2 = val1 *  rating2
+                lastAmount.value = val2
+            })
+            lastAmount.addEventListener('keyup', function () {
+                let val1 = lastAmount.value;
+                let val2 = val1 / rating2
+                firstAmount.value = val2
+            })
         })
+}
+getInfo()
+unitStart.forEach(element => {
+    element.addEventListener('click', function () {
+        console.log(firstvalue)
+        fetch(`https://api.exchangerate.host/latest?base=${firstvalue.textContent}&symbols=${secondvalue.textContent} `)
+            .then(x => x.json()).then(function (x) {
+                firstvalue = document.querySelector('.primary .first')
+                secondvalue = document.querySelector('.secondary .first')
+                rating = x.rates[`${firstvalue.innerText}`]
+                rating2 = x.rates[`${secondvalue.innerText}`]
+                firstAmount = document.querySelector('.starting input');
+                lastAmount = document.querySelector('.ending input');
+                let val1 = firstAmount.value;
+                let val2 = val1 *  rating2
+                lastAmount.value = val2
+            })
+    }
+    )
+});
+unitEnd.forEach(element => {
+    element.addEventListener('click', function () {
+        console.log(rating2)
+        fetch(`https://api.exchangerate.host/latest?base=${firstvalue.textContent}&symbols=${secondvalue.textContent} `)
+            .then(x => x.json()).then(function (x) {
+                firstvalue = document.querySelector('.primary .first')
+                secondvalue = document.querySelector('.secondary .first')
+
+                rating = x.rates[`${firstvalue.innerText}`]
+                rating2 = x.rates[`${secondvalue.innerText}`]
+                firstAmount = document.querySelector('.starting input');
+                lastAmount = document.querySelector('.ending input');
+                let val1 = lastAmount.value;
+                let val2 = val1 / rating2
+                firstAmount.value = val2
+            })
     })
 });
-/////////////////////////
-/// edit info box
-function editInfo() {
-    getInfo()
-    valid();
-    info2.innerText = `1 ${secondvalue} = ${rating}${firstvalue}`
-    info1.innerText = `1 ${firstvalue} = ${rating}${secondvalue}`
-}
-///////
-///// get rate info
-function getInfo() {
-    fetch(`https://api.exchangerate.host/latest?base=${firstvalue}&symbols=${secondvalue} `)
-        .then(x => x.json()).then(function (x) {
-            rating = Object.values(x.rates)[0]
-        })
-}
-/////////
-/// edit boxes according to given value
-function first() {
-    firstAmount.addEventListener('keyup', function () {
-        let val1 = firstAmount.value;
-        let val2 = val1 * rating
-        lastAmount.value = val2
-    })
-}
-function getinfo2() {
-    fetch(`https://api.exchangerate.host/latest?base=${secondvalue}&symbols=${firstvalue} `)
-        .then(x => x.json()).then(function (x) {
-            rating = Object.values(x.rates)[0]
-        })
-}
-function last() {
-    lastAmount.addEventListener('keyup', function () {
-        getinfo2();
-        let val1 = lastAmount.value;
-        let val2 = val1 * rating
-        firstAmount.value = val2
-    })
-}
-first();
-last();
-function valid() {
-    if (document.querySelectorAll('.first').length < 2) { alert('valyuta vahidi secin') }
-}
