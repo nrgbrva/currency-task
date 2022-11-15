@@ -94,7 +94,18 @@ h1 {
 input {
   font-weight: 700;
   font-size: 36px;
+  height: 20%;
   line-height: 42px;
+  outline: none !important;
+  -webkit-appearance: none;
+  border: 0;
+    box-shadow: none
+}
+input:focus{
+  outline: none;
+  border: 0;
+    box-shadow: none
+
 }
 button:hover{
   color: white !important;
@@ -115,6 +126,11 @@ input + p {
 button{
   color: black !important;
 }
+.amount{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 @media (min-width: 768px){
   h1{
     margin-left: 130px !important;
@@ -129,4 +145,8 @@ button{
 
   }
  
+}
+.primary,.secondary{
+  color: 
+  #C6C6C6;
 }
