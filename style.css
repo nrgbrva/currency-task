@@ -93,8 +93,8 @@ h1 {
 
 input {
   font-weight: 700;
-  font-size: 36px;
-  height: 20%;
+  font-size: 20px !important;
+  height: 100%;
   line-height: 42px;
   outline: none !important;
   -webkit-appearance: none;
