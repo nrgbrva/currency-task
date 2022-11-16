@@ -40,13 +40,13 @@ function getInfo() {
             firstAmount.addEventListener('keyup', function () {
                 let val1 = firstAmount.value;
                 let val2 = val1 *  rating2
-                val2=val2.toFixed(4)
+                val2=val2.toFixed(2)
                 lastAmount.value = val2
             })
             lastAmount.addEventListener('keyup', function () {
                 let val1 = lastAmount.value;
                 let val2 = val1 / rating2
-                val2=val2.toFixed(4)
+                val2=val2.toFixed(2)
                 firstAmount.value = val2
             })
         })
@@ -65,7 +65,7 @@ unitStart.forEach(element => {
                 lastAmount = document.querySelector('.ending input');
                 let val1 = firstAmount.value;
                 let val2 = val1 *  rating2
-                val2=val2.toFixed(4)
+                val2=val2.toFixed(2)
                 lastAmount.value = val2
             })
     }
@@ -84,12 +84,12 @@ unitEnd.forEach(element => {
                 lastAmount = document.querySelector('.ending input');
                 let val1 = firstAmount.value;
                 let val2 = val1 *  rating2
-                val2=val2.toFixed(4)
+                val2=val2.toFixed(2)
                 lastAmount.value = val2
                 firstAmount.addEventListener('change',function(){
                 let val1 = lastAmount.value;
                 let val2 = val1 / rating2
-                val2=val2.toFixed(4)
+                val2=val2.toFixed(2)
                 firstAmount.value = val2
                 console.log(val2)
                 })
