@@ -98,7 +98,7 @@ input {
   width: 230px;
   line-height: 42px;
   outline: none !important;
-  -webkit-appearance: none;
+  
   border: 0;
     box-shadow: none
 }
