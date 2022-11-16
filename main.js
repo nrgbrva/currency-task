@@ -1,7 +1,7 @@
 //// boxes coloring
 let firstvalue;
 let secondvalue;
-let rating;
+
 let rating2;
 let unitStart = document.querySelectorAll('.primary .box');
 firstvalue = document.querySelector('.primary .first')
@@ -35,7 +35,6 @@ function getInfo() {
         .then(x => x.json()).then(function (x) {
             firstvalue = document.querySelector('.primary .first')
             secondvalue = document.querySelector('.secondary .first')
-            rating = x.rates[`${firstvalue.innerText}`]
             rating2 = x.rates[`${secondvalue.innerText}`]
             info1.innerText = `1 ${firstvalue.textContent} = ${rating2}${secondvalue.textContent}`
             info2.innerText = `1 ${secondvalue.textContent} = ${1 / rating2}${firstvalue.textContent}`
@@ -59,7 +58,7 @@ unitStart.forEach(element => {
             .then(x => x.json()).then(function (x) {
                 firstvalue = document.querySelector('.primary .first')
                 secondvalue = document.querySelector('.secondary .first')
-                rating = x.rates[`${firstvalue.innerText}`]
+                
                 rating2 = x.rates[`${secondvalue.innerText}`]
                 firstAmount = document.querySelector('.starting input');
                 lastAmount = document.querySelector('.ending input');
@@ -77,7 +76,6 @@ unitEnd.forEach(element => {
             .then(x => x.json()).then(function (x) {
                 firstvalue = document.querySelector('.primary .first')
                 secondvalue = document.querySelector('.secondary .first')
-
                 rating = x.rates[`${firstvalue.innerText}`]
                 rating2 = x.rates[`${secondvalue.innerText}`]
                 firstAmount = document.querySelector('.starting input');
@@ -88,7 +86,7 @@ unitEnd.forEach(element => {
                 firstAmount.addEventListener('change',function(){
                 let val1 = lastAmount.value;
                 let val2 = val1 / rating2
-                firstAmount.value = val2
+                lastAmount.value = val2
                 })
                 
             })
