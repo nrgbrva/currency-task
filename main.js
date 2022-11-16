@@ -82,9 +82,15 @@ unitEnd.forEach(element => {
                 rating2 = x.rates[`${secondvalue.innerText}`]
                 firstAmount = document.querySelector('.starting input');
                 lastAmount = document.querySelector('.ending input');
+                let val1 = firstAmount.value;
+                let val2 = val1 *  rating2
+                lastAmount.value = val2
+                firstAmount.addEventListener('change',function(){
                 let val1 = lastAmount.value;
                 let val2 = val1 / rating2
                 firstAmount.value = val2
+                })
+                
             })
     })
 });
