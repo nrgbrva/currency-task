@@ -32,6 +32,7 @@ function getInfo() {
     fetch(`https://api.exchangerate.host/latest?base=${firstvalue.textContent}&symbols=${secondvalue.textContent} `)
         .then(x => x.json()).then(function (x) {
             firstvalue = document.querySelector('.primary .first')
+            
             secondvalue = document.querySelector('.secondary .first')
             rating2 = x.rates[`${secondvalue.innerText}`]
             info1.innerText = `1 ${firstvalue.textContent} = ${rating2}${secondvalue.textContent}`
@@ -85,6 +86,7 @@ unitEnd.forEach(element => {
                 let val1 = lastAmount.value;
                 let val2 = val1 / rating2
                 firstAmount.value = val2
+                console.log(val2)
                 })
             })
     })
