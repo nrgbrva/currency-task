@@ -6,23 +6,22 @@ let base = "RUB";
 let symbols = "USD";
 let firstAmount = document.querySelector("body > div:nth-child(3) > div > div.col-lg-6.mb-5.starting.d-flex.justify-content-center > div > div:nth-child(3) > div > input");
 let lastAmount = document.querySelector("body > div:nth-child(3) > div > div.col-lg-6.mb-5.ending.d-flex.justify-content-center > div > div:nth-child(3) > div > input");
-function changeVal(b1, a) {
-    b1.forEach(element => {
-        element.onclick = async (e) => {
-            b1.forEach((item) => {
+function changeVal(box, direction) {
+    box.forEach(element => {
+        element.onclick = async (x) => {
+            box.forEach((item) => {
                 item.classList.remove("first");
             })
             element.classList.add("first");
             console.log(element);
-            if (a == 'left') {
+            if (direction == 'left') {
                 base = element.innerText;
             }
-            else if (a == 'right') {
+            else if (direction == 'right') {
                 symbols = element.innerText;
             }
             await fetcher();
             valInsert(active);
-
         }
     });
 }
@@ -36,8 +35,7 @@ async function fetcher() {
     infoLast.innerText = `1 ${symbols} = ${(1 / value).toFixed(4)} ${base}`;
 }
 fetcher();
-
-firstAmount.oninput = (item) => {
+firstAmount.oninput = (number) => {
     if (firstAmount.value != '') {
         lastAmount.value = (value * firstAmount.value).toFixed(2);
 
@@ -46,7 +44,7 @@ firstAmount.oninput = (item) => {
     }
     active = 'left';
 }
-lastAmount.oninput = (item) => {
+lastAmount.oninput = (number) => {
     if (lastAmount.value != '') {
         firstAmount.value = (1 / value * lastAmount.value).toFixed(2);
     } else {
@@ -54,15 +52,15 @@ lastAmount.oninput = (item) => {
     }
     active = 'right';
 }
-function valInsert(p) {
-    if (p == 'right') {
+function valInsert(direct) {
+    if (direct == 'right') {
         if (lastAmount.value != '') {
             firstAmount.value = (1 / value * lastAmount.value).toFixed(2);
         } else {
             firstAmount.value = '';
         }
     }
-    else if (p == 'left') {
+    else if (direct == 'left') {
         if (firstAmount.value != '') {
             lastAmount.value = (value * firstAmount.value).toFixed(2);
 
