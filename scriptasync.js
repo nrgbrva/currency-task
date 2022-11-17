@@ -4,6 +4,7 @@ let infoFirst = document.querySelector("#news1");
 let infoLast = document.querySelector("#news2");
 let base = "RUB";
 let symbols = "USD";
+let active;
 let firstAmount = document.querySelector("body > div:nth-child(3) > div > div.col-lg-6.mb-5.starting.d-flex.justify-content-center > div > div:nth-child(3) > div > input");
 let lastAmount = document.querySelector("body > div:nth-child(3) > div > div.col-lg-6.mb-5.ending.d-flex.justify-content-center > div > div:nth-child(3) > div > input");
 function changeVal(box, direction) {
