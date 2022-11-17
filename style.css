@@ -45,7 +45,7 @@ button:first-of-type {
 }
 
 h1 {
-  font-weight: 700;
+  font-weight: 700 !important;
   font-size: 36px;
   line-height: 42px;
 }
